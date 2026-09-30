@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nn-paving-northampton.taylorrbyt.chatgpt.site/sitemap.xml
