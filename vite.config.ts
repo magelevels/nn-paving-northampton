@@ -18,7 +18,7 @@ const localBindingConfig = {
   main: "./build/sites-worker.ts",
   assets: {
     directory: "dist/client",
-    not_found_handling: "none",
+    not_found_handling: "none" as const,
     binding: "ASSETS",
     run_worker_first: true,
   },
