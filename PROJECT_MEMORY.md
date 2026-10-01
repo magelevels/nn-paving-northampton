@@ -95,9 +95,12 @@ Current Google state:
 
 ## Promotional asset
 
-- A 20.5-second vertical social advert is saved at `outputs/nn-paving-northampton-promo.mp4`. It uses the existing website project imagery, verified service wording, Instagram handle, Facebook business name, website, and phone CTA. The current cut is fully silent and uses sliding scene transitions, gentle photo movement, and horizontal text entrances. No unverified claims were added.
-- The editable video build source is `tools/build_promo.swift`.
-- Production notes are in `outputs/nn-paving-northampton-promo-notes.md`.
+- Latest revision: the user rejected the earlier slideshow-style adverts and supplied a screen recording of a CapCut commercial-ad example. The accepted direction to work toward is bold italic captions, quick split-panel slides, layered project photos, rotating geometric quote frames, and a large logo-and-phone finish.
+- Keep the advert silent. The user explicitly requested removal of the AI voice.
+- Current output files in the workspace's `outputs/` directory: `nn-paving-advert-square.mp4` (1080×1080) and `nn-paving-advert-reel.mp4` (1080×1920), both 22.4 seconds.
+- Uses actual NN Paving project images and logo, verified phone 07999 749569, the Instagram handle, and free no-obligation quote wording. The vertical ending also includes the website.
+- Source: `tools/build_promo.swift`; run from the repository root, with `--vertical` for the Reel format. Local reference analysis and preview frames are under `work/advert-v3/` relative to the workspace.
+- Production notes: `outputs/nn-paving-northampton-promo-notes.md`. The previous `nn-paving-northampton-promo.mp4` is superseded.
 
 ## Recommended next steps
 
