@@ -96,10 +96,10 @@ Current Google state:
 ## Promotional asset
 
 - Latest revision: the user rejected the earlier slideshow-style adverts and supplied a screen recording of a CapCut commercial-ad example. The accepted direction to work toward is bold italic captions, quick split-panel slides, layered project photos, rotating geometric quote frames, and a large logo-and-phone finish.
-- Keep the advert silent. The user explicitly requested removal of the AI voice.
-- Current output files in the workspace's `outputs/` directory: `nn-paving-advert-square.mp4` (1080×1080) and `nn-paving-advert-reel.mp4` (1080×1920), both 22.4 seconds.
+- Keep AI narration removed. The user subsequently requested background music and supplied `ssstik.io_1790847075382.mp3`. It has now been added to both advert formats, with a 0.15-second fade-in and 1.15-second fade-out.
+- Current music versions in the workspace's `outputs/` directory: `nn-paving-advert-square-music.mp4` (1080×1080) and `nn-paving-advert-reel-music.mp4` (1080×1920), both 22.4 seconds. The original silent files without the `-music` suffix are retained.
 - Uses actual NN Paving project images and logo, verified phone 07999 749569, the Instagram handle, and free no-obligation quote wording. The vertical ending also includes the website.
-- Source: `tools/build_promo.swift`; run from the repository root, with `--vertical` for the Reel format. Local reference analysis and preview frames are under `work/advert-v3/` relative to the workspace.
+- Visual source: `tools/build_promo.swift`; run from the repository root, with `--vertical` for the Reel format. Music assembly: `tools/add_promo_music.swift`, which trims/fades the supplied audio then copies the original video track without re-encoding. Local reference analysis, preview frames and the supplied audio are under `work/advert-v3/` relative to the workspace. Do not upload the source music to GitHub.
 - Production notes: `outputs/nn-paving-northampton-promo-notes.md`. The previous `nn-paving-northampton-promo.mp4` is superseded.
 
 ## Recommended next steps
