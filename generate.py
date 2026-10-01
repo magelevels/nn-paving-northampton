@@ -82,7 +82,7 @@ instagram_page=head('Instagram','NN Paving on Instagram.<br>Real work. Real spac
 routes.append(shell('/instagram/','NN Paving Instagram | Northampton Driveways, Patios & Landscaping','Follow NN Paving Northampton on Instagram for driveway, patio and landscaping updates, then start a free quotation enquiry.',instagram_page))
 for page in P.rglob('index.html'):
  s=page.read_text()
- if IG not in s:
+ if 'Follow us on Instagram ↗' not in s:
   s=s.replace(f'<a href="{FB}" target="_blank" rel="noopener">Find us on Facebook ↗</a>',f'<a href="{FB}" target="_blank" rel="noopener">Find us on Facebook ↗</a><a href="{IG}" target="_blank" rel="noopener">Follow us on Instagram ↗</a>')
   page.write_text(s)
 shell('/404/','Page not found | NN Paving Northampton','This page is not available. Return to NN Paving Northampton or request a free quotation.','<section class="section wrap"><span class="eyebrow">A wrong turn</span><h1>That page has<br>moved on.</h1><p>The page you were looking for is not here. Start again from the homepage, browse the project gallery or talk to Leon about your space.</p><div class="actions">'+button('Back to the homepage','/')+button('Get a free quote','/contact/','dark')+'</div></section>')
