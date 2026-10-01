@@ -95,7 +95,8 @@ Current Google state:
 
 ## Promotional asset
 
-- A 21-second vertical social advert was created at `outputs/nn-paving-northampton-promo.mp4`. It uses the existing website project imagery, the verified service wording, the Instagram handle, Facebook business name, website, phone CTA, and a short voiceover. No unverified claims were added.
+- A 20.5-second vertical social advert is saved at `outputs/nn-paving-northampton-promo.mp4`. It uses the existing website project imagery, verified service wording, Instagram handle, Facebook business name, website, and phone CTA. The current cut is fully silent and uses sliding scene transitions, gentle photo movement, and horizontal text entrances. No unverified claims were added.
+- The editable video build source is `tools/build_promo.swift`.
 - Production notes are in `outputs/nn-paving-northampton-promo-notes.md`.
 
 ## Recommended next steps
