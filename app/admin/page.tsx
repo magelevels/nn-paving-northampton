@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { env } from "cloudflare:workers";
 import { chatGPTSignInPath, getChatGPTUser } from "../chatgpt-auth";
+import { ownerEmailConfigured } from "../owner/access";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminLoginPage() {
+  if (!ownerEmailConfigured()) {
+    return <main className="admin-login-shell"><section className="admin-login-card" aria-labelledby="admin-login-title"><p className="owner-kicker">PRIVATE ADMIN AREA</p><h1 id="admin-login-title">Owner access is not configured.</h1><p className="admin-login-copy">The private owner account setting is missing. Add <code>OWNER_EMAIL</code> before signing in.</p><Link className="admin-back-link" href="/">Return to the public website</Link></section></main>;
+  }
   const user = await getChatGPTUser();
-  const ownerEmail = env.OWNER_EMAIL ?? "taylorrbyt@gmail.com";
+  const ownerEmail = env.OWNER_EMAIL as string;
 
   if (user?.email.toLowerCase() === ownerEmail.toLowerCase()) redirect("/owner/");
 

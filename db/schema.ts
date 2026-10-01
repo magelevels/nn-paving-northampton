@@ -20,6 +20,8 @@ export const enquiries = sqliteTable("enquiries", {
   status: text("status").notNull().default("new"),
   nextActionDate: text("next_action_date"),
   nextActionNote: text("next_action_note"),
+  consentAt: text("consent_at"),
+  consentVersion: text("consent_version"),
 });
 
 export const enquiryEvents = sqliteTable("enquiry_events", {
@@ -28,4 +30,13 @@ export const enquiryEvents = sqliteTable("enquiry_events", {
   eventType: text("event_type").notNull(),
   note: text("note"),
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
+export const siteEvents = sqliteTable("site_events", {
+  id: text("id").primaryKey(),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  eventName: text("event_name").notNull(),
+  path: text("path").notNull(),
+  source: text("source").notNull().default("website"),
+  campaign: text("campaign"),
 });

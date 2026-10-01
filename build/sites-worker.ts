@@ -2,8 +2,17 @@ import handler from "vinext/server/fetch-handler";
 import { runWithConnectorBinding } from "../lib/connector-context";
 import type { ConnectorBinding } from "../lib/connector-contract.mjs";
 
+const securityHeaders = {
+  "Content-Security-Policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; upgrade-insecure-requests",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+};
+
 export default {
-  fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
+  async fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
     let binding = ctx.props?.CONNECTORS;
     // Local preview emulates the same request-scoped capability. This branch and
     // the auxiliary service binding are absent from production builds.
@@ -23,6 +32,9 @@ export default {
         },
       };
     }
-    return runWithConnectorBinding(binding, () => handler.fetch(request, env, ctx));
+    const response = await runWithConnectorBinding(binding, () => handler.fetch(request, env, ctx));
+    const headers = new Headers(response.headers);
+    for (const [name, value] of Object.entries(securityHeaders)) headers.set(name, value);
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   },
 };
