@@ -10,5 +10,5 @@ export default async function OwnerPage() {
   if (user.email.toLowerCase() !== ownerEmail.toLowerCase()) {
     return <main className="owner-shell"><div className="owner-card"><p className="owner-kicker">NN PAVING · OWNER AREA</p><h1>Owner access required.</h1><p>This private workspace is only available to the NN Paving owner account.</p></div></main>;
   }
-  return <OwnerDashboard displayName={user.displayName} />;
+  return <OwnerDashboard />;
 }

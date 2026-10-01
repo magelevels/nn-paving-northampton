@@ -15,7 +15,7 @@ const labels: Record<string, string> = {
   quoted: "Quoted", awaiting_client: "Awaiting client", won: "Won", lost: "Lost",
 };
 
-export default function OwnerDashboard({ displayName }: { displayName: string }) {
+export default function OwnerDashboard() {
   const [items, setItems] = useState<Enquiry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -55,7 +55,7 @@ export default function OwnerDashboard({ displayName }: { displayName: string })
   };
 
   return <main className="owner-shell"><div className="owner-wrap">
-    <header className="owner-header"><div><p className="owner-kicker">NN PAVING · OWNER AREA</p><h1>Today’s enquiries</h1><p>Welcome back, {displayName}. {openCount} open {openCount === 1 ? "enquiry needs" : "enquiries need"} attention.</p></div><Link className="owner-muted" href="/signout-with-chatgpt?return_to=/">Sign out</Link></header>
+    <header className="owner-header"><div><p className="owner-kicker">NN PAVING · OWNER AREA</p><h1>Today’s enquiries</h1><p>Welcome back, Leon Read. {openCount} open {openCount === 1 ? "enquiry needs" : "enquiries need"} attention.</p></div><Link className="owner-muted" href="/signout-with-chatgpt?return_to=/">Sign out</Link></header>
     {saved && <p className="owner-success" role="status">{saved}</p>}
     {error && <p className="owner-error" role="alert">{error} <button className="owner-button" onClick={() => void load()}>Try again</button></p>}
     <section className="owner-toolbar"><div><strong>Owner inbox</strong>{newCount > 0 && <span className="owner-new-badge">{newCount} new</span>}<span> New enquiries appear here after a customer reviews the quote planner.</span>{lastChecked && <small className="owner-checked">Last checked {lastChecked.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</small>}</div><div className="owner-toolbar-actions"><Link className="owner-muted" href="/contact/">Test customer journey ↗</Link><button className="owner-button" onClick={() => void load()}>Refresh</button></div></section>
