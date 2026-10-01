@@ -93,6 +93,11 @@ Current Google state:
 - Do not purchase a domain or paid advertising without an explicit new request.
 - Do not send emails, social messages, or customer replies unless the user explicitly asks for that specific message/action.
 
+## Promotional asset
+
+- A 21-second vertical social advert was created at `outputs/nn-paving-northampton-promo.mp4`. It uses the existing website project imagery, the verified service wording, the Instagram handle, Facebook business name, website, phone CTA, and a short voiceover. No unverified claims were added.
+- Production notes are in `outputs/nn-paving-northampton-promo-notes.md`.
+
 ## Recommended next steps
 
 1. Owner enters the private postal address in the open Google verification form and completes Google’s requested verification method.
